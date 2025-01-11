@@ -1,0 +1,16 @@
+# Ignorar archivos de configuración locales
+.env
+config/settings-local.json
+
+# Ignorar carpetas de dependencias
+node_modules/
+vendor/
+
+# Ignorar archivos generados
+*.log
+*.tmp
+*.bak
+
+# Ignorar compilaciones
+dist/
+build/
