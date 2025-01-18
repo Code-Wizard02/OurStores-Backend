@@ -44,4 +44,20 @@ export class UserController {
             }
         }
     }
+
+    static async deleteUser (req: Request, res: Response): Promise<void> {
+        const userRepository = new MongoUserRepository();
+        
+        try {
+            const userId = req.params.id;
+            await userRepository.deleteById(userId);
+            res.status(200).json({ message: "User deleted" });
+        } catch (error) {
+            if (error instanceof Error) {
+                res.status(404).json({ message: error.message });
+            } else {
+                res.status(404).json({ message: "Unknown error" });
+            }
+        }
+    }
 }

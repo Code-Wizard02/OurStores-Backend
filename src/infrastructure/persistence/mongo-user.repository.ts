@@ -24,7 +24,8 @@ export class MongoUserRepository implements UserRepository {
     return user;
   }
 
-  async deleteById(id: string): Promise<void> {
-    await UserModel.deleteOne({ _id: id });
+  async deleteById(id: string): Promise<User | null> {
+    await UserModel.findOneAndDelete({ _id: id });
+    return null;
   }
 }
