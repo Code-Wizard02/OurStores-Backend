@@ -16,12 +16,16 @@ export class LoginUseCase {
         if (!isPasswordCorrect) {
             throw new Error("Invalid password");
         }
-
+        
         const sessionId = uuidv4();
-        const token = jwt.sign({ userId: user.id, sessionId }, process.env.JWT_SECRET!);
+        const authToken = jwt.sign(
+            { userId: user.id, sessionId },
+            process.env.JWT_SECRET!
+        );
+
         return {
             user,
-            token,
-        };
+            authToken,
+        }
     }
 }

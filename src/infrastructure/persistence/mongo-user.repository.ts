@@ -12,7 +12,7 @@ export class MongoUserRepository implements UserRepository {
   }
 
   async findByEmailOrPhone(email?: string, phoneNumber?: string): Promise<User | null> {
-    return await UserModel.findOne({ $or: [{ email }, { phoneNumber }] });
+    return await UserModel.findOne({email});
   }
 
   async findAll(): Promise<User[]> {
