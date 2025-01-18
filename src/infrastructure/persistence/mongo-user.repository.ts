@@ -19,8 +19,8 @@ export class MongoUserRepository implements UserRepository {
     return await UserModel.find();
   }
 
-  async update(user: User): Promise<User> {
-    await UserModel.updateOne({ _id: user.id }, user);
+  async update(id:string, user: User): Promise<User> {
+    await UserModel.updateOne({ _id: id }, user);
     return user;
   }
 

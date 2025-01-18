@@ -7,5 +7,6 @@ import { GetUserByIdUseCase } from '../../../use-cases/User/get-user-by-id.use-c
 const router = Router();
 
 router.get('/:id', UserController.getUserById);
+router.patch('/:id', UserController.updateUser);
 
 export default router;
